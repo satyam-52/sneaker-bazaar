@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/satyam-52/sneaker-bazaar/static/css/main.806281a3.chunk.css",
+    "main.js": "/satyam-52/sneaker-bazaar/static/js/main.497fd31c.chunk.js",
+    "main.js.map": "/satyam-52/sneaker-bazaar/static/js/main.497fd31c.chunk.js.map",
+    "runtime-main.js": "/satyam-52/sneaker-bazaar/static/js/runtime-main.dbf3736c.js",
+    "runtime-main.js.map": "/satyam-52/sneaker-bazaar/static/js/runtime-main.dbf3736c.js.map",
+    "static/js/2.fd51b63c.chunk.js": "/satyam-52/sneaker-bazaar/static/js/2.fd51b63c.chunk.js",
+    "static/js/2.fd51b63c.chunk.js.map": "/satyam-52/sneaker-bazaar/static/js/2.fd51b63c.chunk.js.map",
+    "index.html": "/satyam-52/sneaker-bazaar/index.html",
+    "static/css/main.806281a3.chunk.css.map": "/satyam-52/sneaker-bazaar/static/css/main.806281a3.chunk.css.map",
+    "static/js/2.fd51b63c.chunk.js.LICENSE.txt": "/satyam-52/sneaker-bazaar/static/js/2.fd51b63c.chunk.js.LICENSE.txt",
+    "static/media/bg_bggenerator_com.557337c9.png": "/satyam-52/sneaker-bazaar/static/media/bg_bggenerator_com.557337c9.png",
+    "static/media/img1.79513df3.jfif": "/satyam-52/sneaker-bazaar/static/media/img1.79513df3.jfif",
+    "static/media/img10.d06eed5d.webp": "/satyam-52/sneaker-bazaar/static/media/img10.d06eed5d.webp",
+    "static/media/img11.499e3801.webp": "/satyam-52/sneaker-bazaar/static/media/img11.499e3801.webp",
+    "static/media/img12.01f8b59d.webp": "/satyam-52/sneaker-bazaar/static/media/img12.01f8b59d.webp",
+    "static/media/img2.12664553.jfif": "/satyam-52/sneaker-bazaar/static/media/img2.12664553.jfif",
+    "static/media/img3.412947f0.jfif": "/satyam-52/sneaker-bazaar/static/media/img3.412947f0.jfif",
+    "static/media/img4.66664dd7.jpg": "/satyam-52/sneaker-bazaar/static/media/img4.66664dd7.jpg",
+    "static/media/img5.1474e0ec.zoom": "/satyam-52/sneaker-bazaar/static/media/img5.1474e0ec.zoom",
+    "static/media/img6.7d514694.zoom": "/satyam-52/sneaker-bazaar/static/media/img6.7d514694.zoom",
+    "static/media/img7.f494a54d.jfif": "/satyam-52/sneaker-bazaar/static/media/img7.f494a54d.jfif",
+    "static/media/img8.a2cb48c1.jfif": "/satyam-52/sneaker-bazaar/static/media/img8.a2cb48c1.jfif",
+    "static/media/img9.a7f29e9a.jfif": "/satyam-52/sneaker-bazaar/static/media/img9.a7f29e9a.jfif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dbf3736c.js",
+    "static/js/2.fd51b63c.chunk.js",
+    "static/css/main.806281a3.chunk.css",
+    "static/js/main.497fd31c.chunk.js"
+  ]
+}
