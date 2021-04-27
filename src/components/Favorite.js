@@ -20,7 +20,7 @@ function Favorite({ id, img, header, rating, price, key}) {
   };
 
   return (
-    <div className="favorite" css={CSS} key={key}>
+    <div className="favorite" css={CSS} key={id}>
       <div className="img__container">
         <img src={img} alt={header} />
       </div>
