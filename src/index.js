@@ -14,6 +14,8 @@ import Login from "./components/Login";
 import { UserProvider } from "./components/UserContext";
 import { FavoriteProvider } from "./components/FavoriteContext";
 import { SAuthProvider } from "./components/SuccessAuthContext";
+import AccountDetails from "./components/AccountDetails";
+import Redirect from "./components/Redirect";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -34,6 +36,12 @@ ReactDOM.render(
                     </Route>
                     <Route path="/login">
                       <Login />
+                    </Route>
+                    <Route path="/account">
+                      <AccountDetails />
+                    </Route>
+                    <Route path="/redirect">
+                      <Redirect />
                     </Route>
                     <Route path="/">
                       <App />

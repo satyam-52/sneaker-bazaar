@@ -43,7 +43,7 @@ function Navbar(props) {
           <Link to="/cart">
             <p>Cart({basket.length})</p>
           </Link>
-          <Link to="/login">
+          <Link to="/redirect">
             <p>Account</p>
           </Link>
         </div>

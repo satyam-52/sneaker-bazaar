@@ -19,6 +19,7 @@ function Login() {
   const [users, setUsers] = useContext(UserContext);
   let [SIemail, setSIemail] = useState("");
   let [SIpassword, setSIpassword] = useState("");
+  // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useContext(SAuthContext);
 
   const nameChange = (e) => {
@@ -78,7 +79,7 @@ function Login() {
       // console.log("if");
       setCurrentUser(u[0]);
       // alert("Signed In!!");
-      history.replace("/");
+      history.replace("/account");
     } else {
       // console.log("else");
       alert("Incorrect Email or Password or User doesn't exist.");
