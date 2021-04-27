@@ -22,83 +22,104 @@ export const ProductContext = createContext();
 export function ProductProvider(props) {
   const [products, setProducts] = useState([
     {
+      id: "1",
       img: img1,
       header: "Jordan 'Why Not?' Zer0.4 PF",
       rating: 5,
-      price: 11495
+      price: 11495,
+      fav: false
     },
     {
+      id: "2",
       img: img2,
       header: "Air Jordan 1 Mid",
       rating: 5,
-      price: 9995
+      price: 9995,
+      fav: false
     },
     {
+      id: "3",
       img: img3,
       header: "Nike Air Force 1 Mid '07",
       rating: 5,
-      price: 8195
+      price: 8195,
+      fav: false
     },
     {
+      id: "4",
       img: img4,
       header: "Trigreca Sneakers",
       rating: 5,
-      price: 96300
+      price: 96300,
+      fav: false
     },
     {
+      id: "5",
       img: img5,
       header: "KIDS-BOYS ADIDAS FOOTBALL NEMEZIZ MESSI .3 TURF SHOES",
       rating: 4,
-      price: 5599
+      price: 5599,
+      fav: false
     },
     {
+      id: "6",
       img: img6,
       header: "WOMEN'S ADIDAS RUNNING ULTRABOOST 21 SHOES",
       rating: 4,
-      price: 17999
+      price: 17999,
+      fav: false
     },
     {
+      id: "7",
       img: img7,
       header: "RS-X³ Twill Air Mesh Shoes",
       rating: 5,
-      price: 9999
+      price: 9999,
+      fav: false
     },
     {
+      id: "8",
       img: img8,
       header: "Cali Backcourt Mid Rainbow Sneakers",
       rating: 4,
-      price: 6999
+      price: 6999,
+      fav: false
     },
-    {
+    { id: "9",
       img: img9,
       header: "Anzarun Lite Sneakers",
       rating: 4,
-      price: 2999
+      price: 2999,
+      fav: false
     },
     {
+      id: "10",
       img: img10,
       header: "Cruise Rider Women's Shoes",
       rating: 4,
-      price: 6999
+      price: 6999,
+      fav: false
     },
     {
+      id: "11",
       img: img11,
       header: "Deva Mono Pop Women's Shoes",
       rating: 3,
-      price: 5849
+      price: 5849,
+      fav: false
     },
     {
+      id: "12",
       img: img12,
       header: "RS-X Reinvent Women's Sneakers",
       rating: 5,
-      price: 8999
+      price: 8999,
+      fav: false
     }
   ]);
 
-  const [currentProduct, setCurrentProduct] = useState({});
-
   return (
-    <ProductContext.Provider value={[products, setProducts, currentProduct, setCurrentProduct]}>
+    <ProductContext.Provider value={[products, setProducts]}>
       {props.children}
     </ProductContext.Provider>
   )

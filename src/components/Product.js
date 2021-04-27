@@ -5,42 +5,103 @@ import { jsx, css } from "@emotion/react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+import { CurrentProductContext } from "./CurrentProductContext";
+import { BasketContext } from "./BasketContext";
+import { FavoriteContext } from "./FavoriteContext";
 import { ProductContext } from "./ProductContext";
 
-function Product({ img, header, rating, price }) {
-  const [products, setProducts, currentProduct, setCurrentProduct] = useContext(ProductContext);
+function Product({ id, img, header, rating, price, fav }) {
+  // eslint-disable-next-line
+  const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext);
+  const [basket, setBasket] = useContext(BasketContext);
+  const [favorites, setFavorites] = useContext(FavoriteContext);
+  const [products, setProducts] = useContext(ProductContext)
 
   const favoriteHandler = (e) => {
     if (e.target.classList.contains("far")) {
-      e.target.classList.remove("far");
-      e.target.classList.add("fas");
+      setFavorites({
+        ...favorites, [id]:
+        {
+          id: id,
+          img: img,
+          header: header,
+          rating: rating,
+          price: price,
+        },
+      });
+
+      setProducts([...products.filter(cur => Object.values(cur).indexOf(id) === -1), {
+        id: id,
+        img: img,
+        header: header,
+        rating: rating,
+        price: price,
+        fav: true
+      }].sort((a, b) => Number(a.id) - Number(b.id)))
+
+      // setProducts([...products.sort((a, b) => Number(a.id) - Number(b.id))])
+
+      // e.target.classList.remove("far");
+      // e.target.classList.add("fas");
+
     } else {
-      e.target.classList.remove("fas");
-      e.target.classList.add("far");
+      if(Object.keys(favorites).some(key => key === id)) {
+        delete favorites[id];
+        setFavorites({...favorites});
+
+        setProducts([...products.filter(cur => Object.values(cur).indexOf(id) === -1), {
+          id: id,
+          img: img,
+          header: header,
+          rating: rating,
+          price: price,
+          fav: false
+        }].sort((a, b) => Number(a.id) - Number(b.id)))
+
+        // setProducts([...products.sort((a, b) => Number(a.id) - Number(b.id))])
+      }
+
+      // e.target.classList.remove("fas");
+      // e.target.classList.add("far");
     }
   };
 
   const setProduct = () => {
+    // console.log(id);
     setCurrentProduct({
+      id: id,
       img: img,
       header: header,
       rating: rating,
       price: price,
+      fav: fav
     });
+  };
+
+  const addToBasket = () => {
+    setBasket([
+      ...basket,
+      {
+        img: img,
+        header: header,
+        rating: rating,
+        price: price,
+      },
+    ]);
   };
 
   return (
     <div className="product" css={CSS}>
-      <Link to="/selected-product">
-        <div onClick={setProduct} className="img">
-          <img src={img} alt={header} />
-          <div onClick={favoriteHandler} className="favorite__button">
-            <i className="far fa-heart"></i>
-          </div>
-        </div>
-      </Link>
-      <div className="content">
+      <div onClick={setProduct} className="img">
         <Link to="/selected-product">
+          <img src={img} alt={header} />
+        </Link>
+        <div onClick={favoriteHandler} className="favorite__button">
+          {fav ? (<i className="fa fa-heart"></i>) :(<i className="far fa-heart"></i>)}
+        </div>
+      </div>
+      <div className="content">
+        <Link onClick={setProduct} to="/selected-product">
           <p className="product__name">
             {header.length > 30 ? header.slice(0, 30) + "..." : header}
           </p>
@@ -70,7 +131,7 @@ function Product({ img, header, rating, price }) {
           <button>
             Buy Now <i className="fas fa-shopping-cart"></i>
           </button>
-          <button>
+          <button onClick={addToBasket}>
             Add to Bag <i className="fas fa-shopping-bag"></i>
           </button>
         </div>

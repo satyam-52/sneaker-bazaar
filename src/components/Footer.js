@@ -125,6 +125,7 @@ const CSS = css`
   justify-content: space-between;
   padding: 0 75px;
   border-top: 1px solid lightgray;
+  font-family: "Work Sans", sans-serif;
 
   .footer__top {
     padding-top: 70px;
@@ -189,6 +190,7 @@ const CSS = css`
             background-color: rgba(130, 130, 130, 0.3);
             border-radius: 180px;
             text-align: center;
+            cursor: pointer;
 
             :hover .fa-facebook {
               color: #00b2ff;

@@ -3,16 +3,74 @@
 
 import { jsx, css } from "@emotion/react";
 import CurrencyFormat from "react-currency-format";
-import img from "../images/img4.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { CurrentProductContext } from "./CurrentProductContext";
+import { BasketContext } from "./BasketContext";
+import { FavoriteContext } from "./FavoriteContext";
 import { ProductContext } from "./ProductContext";
 
 function ProductLanding() {
-  const [product, setProducts, currentProduct, setCurrentProduct] = useContext(
-    ProductContext
-  );
+  const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext);
+  const [basket, setBasket] = useContext(BasketContext);
+  const [favorites, setFavorites] = useContext(FavoriteContext);
+  const [products, setProducts] = useContext(ProductContext)
 
-  // console.log(currentProduct);
+  const [quantity, setQuantity] = useState(1);
+
+  const increment = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    } else {
+      alert("Quantity cannot be less then 1");
+    }
+  };
+
+  const addToBasket = () => {
+    setBasket([
+      ...basket,
+      {
+        id: currentProduct.id,
+        img: currentProduct.img,
+        header: currentProduct.header,
+        rating: currentProduct.rating,
+        price: currentProduct.price,
+      },
+    ]);
+  };
+
+  const addToFavorites = (e) => {
+    if (!currentProduct.fav)
+    {
+      setFavorites({
+        ...favorites,
+        [currentProduct.id]: {
+          id: currentProduct.id,
+          img: currentProduct.img,
+          header: currentProduct.header,
+          rating: currentProduct.rating,
+          price: currentProduct.price,
+        },
+      });
+
+      currentProduct.fav = true
+      setCurrentProduct({...currentProduct, fav: true})
+      setProducts([...products.filter(cur => cur.id !== currentProduct.id), currentProduct].sort((a, b) => Number(a.id) - Number(b.id)))
+
+    } else {
+      if (Object.keys(favorites).some((key) => key === currentProduct.id)) {
+        delete favorites[currentProduct.id];
+        setFavorites({ ...favorites });
+
+        currentProduct.fav = false
+        setCurrentProduct({...currentProduct, fav: false})
+        setProducts([...products.filter(cur => cur.id !== currentProduct.id), currentProduct].sort((a, b) => Number(a.id) - Number(b.id)))
+      }
+    }
+  };
 
   return (
     <div class="selected__product" css={CSS}>
@@ -24,8 +82,9 @@ function ProductLanding() {
           <h2>{currentProduct.header}</h2>
         </div>
         <div className="product__wishlist">
-          <p>
-            Add to wishlist <i className="far fa-heart"></i>
+          <p onClick={addToFavorites}>
+            {currentProduct.fav ? "Remove" : "Add"} to wishlist{" "}
+            {currentProduct.fav ? (<i className="fa fa-heart"></i>) : (<i className="far fa-heart"></i>)}
           </p>
         </div>
         <div className="product__rating">
@@ -62,12 +121,12 @@ function ProductLanding() {
           </p>
         </div>
         <div className="product__quantity">
-          <i className="fas fa-minus"></i>
-          <span>1</span>
-          <i className="fas fa-plus"></i>
+          <i className="fas fa-minus" onClick={decrement}></i>
+          <span>{quantity}</span>
+          <i className="fas fa-plus" onClick={increment}></i>
         </div>
         <div className="product__details-buttons">
-          <button>Add to Bag</button>
+          <button onClick={addToBasket}>Add to Bag</button>
           <button>Buy Now</button>
         </div>
       </div>
@@ -226,6 +285,7 @@ const CSS = css`
     }
 
     .product__quantity {
+      font-size: 2rem;
       display: flex;
       justify-content: space-between;
       width: 150px;
@@ -252,12 +312,12 @@ const CSS = css`
       }
 
       i:before {
-        font-size: 18px;
+        font-size: 2rem;
       }
 
       span {
-        font-size: 18px;
-        padding: 7px 0 5px 0;
+        font-size: 2rem;
+        padding: 3px 0 3px 0;
       }
 
       .fa-plus {

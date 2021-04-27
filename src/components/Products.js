@@ -3,8 +3,8 @@
 
 import { jsx, css } from "@emotion/react";
 import Product from "./Product";
-import {useContext} from "react"
-import { ProductContext } from "./ProductContext"
+import { useContext } from "react";
+import { ProductContext } from "./ProductContext";
 
 function Products() {
   const [products] = useContext(ProductContext);
@@ -12,7 +12,7 @@ function Products() {
   let pRows = [];
   // console.log(rows);
   let i = 0;
-  while(i < products.length) {
+  while (i < products.length) {
     let row = [];
     for (let j = 0; j <= rows; j++) {
       row.push(products[i]);
@@ -22,7 +22,6 @@ function Products() {
     row = [];
   }
   // console.log(pRows);
-
 
   return (
     <div id="products" className="products" css={CSS}>
@@ -38,9 +37,17 @@ function Products() {
         </div>
       </div>
       {pRows.map((r, i) => (
-        <div className="product__row">
+        <div className="product__row" key={i}>
           {r.map((pro, j) => (
-            <Product img={pro.img} header={pro.header} rating={pro.rating} price={pro.price} key={i+j} />
+            <Product
+              id={pro.id}
+              img={pro.img}
+              header={pro.header}
+              rating={pro.rating}
+              price={pro.price}
+              fav={pro.fav}
+              key={pro.id}
+            />
           ))}
         </div>
       ))}
