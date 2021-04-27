@@ -2,9 +2,19 @@
 /** @jsx jsx */
 
 import { css, jsx } from "@emotion/react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
 function Navbar(props) {
+=======
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { BasketContext } from "./BasketContext";
+
+function Navbar(props) {
+  const [basket] = useContext(BasketContext);
+
+>>>>>>> 6cb3e76 (Added login page. Added Functionality to favorites and login page)
   const clickHandler = () => {
     let a = document.getElementsByClassName("nav__searchBar");
     let b = document.getElementsByClassName("nav__container");
@@ -29,13 +39,28 @@ function Navbar(props) {
           </Link>
         </div>
         <div className="nav__links">
+<<<<<<< HEAD
           <p>Account</p>
           <p>Notifications</p>
+=======
+          <Link to="/">
+            <p>Home</p>
+          </Link>
+>>>>>>> 6cb3e76 (Added login page. Added Functionality to favorites and login page)
           <p>Orders</p>
           <p id="search" onClick={clickHandler}>
             Search
           </p>
+<<<<<<< HEAD
           <p>Cart</p>
+=======
+          <Link to="/cart">
+            <p>Cart({basket.length})</p>
+          </Link>
+          <Link to="/login">
+            <p>Account</p>
+          </Link>
+>>>>>>> 6cb3e76 (Added login page. Added Functionality to favorites and login page)
         </div>
         <div className="nav__searchBar">
           {/* DROPDOWN BUTTON HERE */}
