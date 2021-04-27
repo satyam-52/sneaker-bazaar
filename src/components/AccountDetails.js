@@ -2,9 +2,10 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext } from "react"
+import { useContext } from "react";
 import { useHistory } from "react-router";
-import { SAuthContext } from "./SuccessAuthContext"
+import { Link } from "react-router-dom";
+import { SAuthContext } from "./SuccessAuthContext";
 import { UserContext } from "./UserContext";
 
 function AccountDetails() {
@@ -13,18 +14,18 @@ function AccountDetails() {
   const [currentUser, setCurrentUser] = useContext(SAuthContext);
   // eslint-disable-next-line
   const [users, setUsers] = useContext(UserContext);
-  
+
   const signOut = (e) => {
     e.preventDefault();
     setCurrentUser({
       name: "Guest",
       email: "",
       password: "",
-      address: ""
-    })
+      address: "",
+    });
 
     history.replace("/login");
-  }
+  };
 
   // const changePassword = (e) => {
   //   e.preventDefault();
@@ -53,7 +54,9 @@ function AccountDetails() {
             <span>{currentUser.address}</span>
           </div>
           <div className="change__password">
-            <button disabled>Change Password</button>
+            <Link to="/change-password">
+              <button>Change Password</button>
+            </Link>
           </div>
           <div className="logout">
             <button onClick={signOut}>Sign Out</button>
@@ -115,7 +118,7 @@ const CSS = css`
             content: "";
             height: 4px;
             width: 50%;
-            background-color: #EF476F;
+            background-color: #ef476f;
             display: block;
             margin-left: 1px;
           }
@@ -135,7 +138,8 @@ const CSS = css`
         }
       }
 
-      .change__password, .logout {
+      .change__password,
+      .logout {
         width: 190px;
         margin: 15px 0;
 
@@ -145,7 +149,7 @@ const CSS = css`
           text-transform: uppercase;
           border: none;
           background-color: rgba(6, 214, 160, 0.5);
-          color: #073B4C;
+          color: #073b4c;
           font-size: 16px;
           cursor: pointer;
           transition: all 0.3s ease;

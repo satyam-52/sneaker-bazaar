@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import AccountDetails from "./AccountDetails";
 import Login from "./Login";
 import { SAuthContext } from "./SuccessAuthContext";

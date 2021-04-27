@@ -298,7 +298,7 @@ const CSS = css`
     height: 100%;
     /* border-radius: 0 4px 4px 0; */
     border: none;
-    margin-left: -7.5px;
+    margin-left: -6.5px;
   }
 
   input:focus {

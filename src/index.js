@@ -16,6 +16,7 @@ import { FavoriteProvider } from "./components/FavoriteContext";
 import { SAuthProvider } from "./components/SuccessAuthContext";
 import AccountDetails from "./components/AccountDetails";
 import Redirect from "./components/Redirect";
+import ChangePassword from "./components/ChangePassword";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -42,6 +43,9 @@ ReactDOM.render(
                     </Route>
                     <Route path="/redirect">
                       <Redirect />
+                    </Route>
+                    <Route path="/change-password">
+                      <ChangePassword />
                     </Route>
                     <Route path="/">
                       <App />
