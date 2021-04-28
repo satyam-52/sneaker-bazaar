@@ -129,7 +129,7 @@ const CSS = css`
     height: 50vh;
     width: 60vh;
     padding: 0 25px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
   }
 
   label {

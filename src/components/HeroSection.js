@@ -60,7 +60,7 @@ const CSS = css`
     height: 100%;
     display: flex;
     position: relative;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
 
     .text__section {
       height: 100%;

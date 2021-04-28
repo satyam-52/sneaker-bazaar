@@ -214,7 +214,7 @@ const CSS = css`
     font-family: "Work Sans", sans-serif;
     background-color: rgba(6, 214, 160, 0.2);
     border-radius: 4px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
   }
 
   .cont1 {
