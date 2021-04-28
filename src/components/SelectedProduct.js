@@ -38,6 +38,7 @@ function ProductLanding() {
         header: currentProduct.header,
         rating: currentProduct.rating,
         price: currentProduct.price,
+        fav: currentProduct.fav
       },
     ]);
   };
@@ -53,8 +54,20 @@ function ProductLanding() {
           header: currentProduct.header,
           rating: currentProduct.rating,
           price: currentProduct.price,
+          fav: true
         },
       });
+
+      if(basket.length !== 0) {
+        if(basket.filter(cur => cur.id === currentProduct.id) !== []) {
+          basket.forEach((cur, i) => {
+            if (cur.id === currentProduct.id) {
+              cur.fav = true;
+            }
+          })
+          setBasket([...basket]);
+        }
+      }
 
       currentProduct.fav = true
       setCurrentProduct({...currentProduct, fav: true})
@@ -65,6 +78,17 @@ function ProductLanding() {
         delete favorites[currentProduct.id];
         setFavorites({ ...favorites });
 
+        if(basket.length !== 0) {
+          if(basket.filter(cur => cur.id === currentProduct.id) !== []) {
+            basket.forEach((cur, i) => {
+              if (cur.id === currentProduct.id) {
+                cur.fav = false;
+              }
+            })
+            setBasket([...basket]);
+          }
+        }
+
         currentProduct.fav = false
         setCurrentProduct({...currentProduct, fav: false})
         setProducts([...products.filter(cur => cur.id !== currentProduct.id), currentProduct].sort((a, b) => Number(a.id) - Number(b.id)))
@@ -73,7 +97,7 @@ function ProductLanding() {
   };
 
   return (
-    <div class="selected__product" css={CSS}>
+    <div className="selected__product" css={CSS}>
       <div className="img__container">
         <img src={currentProduct.img} alt={currentProduct.header} />
       </div>

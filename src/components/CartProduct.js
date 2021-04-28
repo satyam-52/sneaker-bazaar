@@ -8,17 +8,20 @@ import { Link } from "react-router-dom";
 import { CurrentProductContext } from "./CurrentProductContext";
 import { BasketContext } from "./BasketContext";
 
-function CartProduct({ img, header, rating, price }) {
+function CartProduct({ id, img, header, rating, price, fav }) {
   // eslint-disable-next-line
   const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext);
   const [basket, setBasket] = useContext(BasketContext);
 
   const headerClickHandler = () => {
+
     setCurrentProduct({
+      id: id,
       img: img,
       header: header,
       rating: rating,
       price: price,
+      fav: fav
     });
   };
 

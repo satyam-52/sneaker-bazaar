@@ -19,6 +19,7 @@ function Favorites() {
           header={favorites[k].header}
           rating={favorites[k].rating}
           price={favorites[k].price}
+          fav={favorites[k].fav}
           key={i}
         />
       ))}

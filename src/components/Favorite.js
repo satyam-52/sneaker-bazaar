@@ -5,15 +5,17 @@ import { css, jsx } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
+import { BasketContext } from "./BasketContext";
 import { CurrentProductContext } from "./CurrentProductContext";
 import { FavoriteContext } from "./FavoriteContext";
 import { ProductContext } from "./ProductContext";
 
-function Favorite({ id, img, header, rating, price, key }) {
+function Favorite({ id, img, header, rating, price, fav }) {
   const [favorites, setFavorites] = useContext(FavoriteContext);
   const [products, setProducts] = useContext(ProductContext);
   // eslint-disable-next-line
   const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext)
+  const [basket, setBasket] = useContext(BasketContext)
 
   const clickHandler = () => {
     // console.log(favorites, key);
@@ -24,16 +26,31 @@ function Favorite({ id, img, header, rating, price, key }) {
       ].sort((a, b) => Number(a.id) - Number(b.id))
     );
 
+    setCurrentProduct({...currentProduct, fav: false});
+
+    if(basket.length !== 0) {
+      if(basket.filter(cur => cur.id === id) !== []) {
+        basket.forEach((cur, i) => {
+          if (cur.id === id) {
+            cur.fav = false;
+          }
+        })
+        setBasket([...basket]);
+      }
+    }
+
     delete favorites[id];
     setFavorites({ ...favorites });
   };
 
   const headerClickHandler = () => {
     setCurrentProduct({
+      id: id,
       img: img,
       header: header,
       rating: rating,
       price: price,
+      fav: fav
     });
   };
 

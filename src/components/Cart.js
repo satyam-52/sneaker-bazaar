@@ -22,10 +22,13 @@ function Cart() {
             .fill()
             .map((_, i) => (
               <CartProduct
+                id={basket[i].id}
                 img={basket[i].img}
                 header={basket[i].header}
                 rating={basket[i].rating}
                 price={basket[i].price}
+                fav={basket[i].fav}
+                key={i}
               />
             ))
         )}

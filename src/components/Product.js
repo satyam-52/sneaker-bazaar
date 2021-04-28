@@ -27,6 +27,7 @@ function Product({ id, img, header, rating, price, fav }) {
           header: header,
           rating: rating,
           price: price,
+          fav: true
         },
       });
 
@@ -82,10 +83,12 @@ function Product({ id, img, header, rating, price, fav }) {
     setBasket([
       ...basket,
       {
+        id: id,
         img: img,
         header: header,
         rating: rating,
         price: price,
+        fav: fav
       },
     ]);
   };
