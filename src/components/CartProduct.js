@@ -6,7 +6,7 @@ import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
 import { CurrentProductContext } from "./CurrentProductContext";
-import { BasketContext } from "./BasketContext"
+import { BasketContext } from "./BasketContext";
 
 function CartProduct({ img, header, rating, price }) {
   // eslint-disable-next-line
@@ -23,20 +23,22 @@ function CartProduct({ img, header, rating, price }) {
   };
 
   const removeProduct = () => {
-    for(let i = 0; i < basket.length; i++ ) {
-      if(Object.values(basket[i]).indexOf(img) !== -1) {
+    for (let i = 0; i < basket.length; i++) {
+      if (Object.values(basket[i]).indexOf(img) !== -1) {
         basket.splice(i, 1);
         setBasket([...basket]);
         // console.log(basket);
         break;
       }
     }
-  }
+  };
 
   return (
     <div className="cart__product" css={CSS}>
       <div className="img__container">
-        <img src={img} alt={header} />
+        <Link onClick={headerClickHandler} to="/selected-product">
+          <img src={img} alt={header} />
+        </Link>
       </div>
       <div className="cart__product-content">
         <Link onClick={headerClickHandler} to="/selected-product">
@@ -88,7 +90,7 @@ const CSS = css`
     justify-content: center;
 
     @media screen and (max-width: 950px) {
-      height: 80%;
+      height: 65%;
       width: 250px;
     }
 
@@ -121,7 +123,7 @@ const CSS = css`
       margin-bottom: 5px;
 
       :hover {
-        color: #EF476F;
+        color: #ef476f;
       }
     }
 

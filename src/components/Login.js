@@ -7,6 +7,7 @@ import { UserContext } from "./UserContext";
 import img from "../images/bg_bggenerator_com.png";
 import { SAuthContext } from "./SuccessAuthContext";
 import { useHistory } from "react-router-dom";
+import Particle from "./Particle";
 
 function Login() {
   const history = useHistory();
@@ -90,6 +91,7 @@ function Login() {
 
   return (
     <div className="login__wrapper" css={CSS}>
+      <Particle className="particle" />
       <div id="cont">
         <div className="cont1">
           <h4>LOGIN</h4>
@@ -197,6 +199,10 @@ const CSS = css`
       rgba(6, 214, 160, 0.1) 100%
     );
 
+  #tsparticles {
+    margin-top: 0;
+  }
+
   #cont {
     display: flex;
     justify-content: center;
@@ -208,6 +214,7 @@ const CSS = css`
     font-family: "Work Sans", sans-serif;
     background-color: rgba(6, 214, 160, 0.2);
     border-radius: 4px;
+    backdrop-filter: blur(2px);
   }
 
   .cont1 {
@@ -330,6 +337,11 @@ const CSS = css`
       // margin-top: 6.5rem;
       flex-direction: column;
       height: 180vh;
+    }
+
+    #tsparticles {
+      height: 191vh !important;
+      top: 0;
     }
 
     .cont1 {

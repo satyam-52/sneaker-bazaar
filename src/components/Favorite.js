@@ -4,28 +4,52 @@
 import { css, jsx } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
+import { Link } from "react-router-dom";
+import { CurrentProductContext } from "./CurrentProductContext";
 import { FavoriteContext } from "./FavoriteContext";
 import { ProductContext } from "./ProductContext";
 
-function Favorite({ id, img, header, rating, price, key}) {
+function Favorite({ id, img, header, rating, price, key }) {
   const [favorites, setFavorites] = useContext(FavoriteContext);
-  const [products, setProducts] = useContext(ProductContext)
+  const [products, setProducts] = useContext(ProductContext);
+  // eslint-disable-next-line
+  const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext)
 
   const clickHandler = () => {
     // console.log(favorites, key);
-    setProducts([...products.filter(cur => cur.id !== id), {...favorites[id], fav: false}].sort((a, b) => Number(a.id) - Number(b.id)))
+    setProducts(
+      [
+        ...products.filter((cur) => cur.id !== id),
+        { ...favorites[id], fav: false },
+      ].sort((a, b) => Number(a.id) - Number(b.id))
+    );
 
     delete favorites[id];
     setFavorites({ ...favorites });
   };
 
+  const headerClickHandler = () => {
+    setCurrentProduct({
+      img: img,
+      header: header,
+      rating: rating,
+      price: price,
+    });
+  };
+
   return (
     <div className="favorite" css={CSS} key={id}>
       <div className="img__container">
-        <img src={img} alt={header} />
+        <Link onClick={headerClickHandler} to="/selected-product">
+          <img src={img} alt={header} />
+        </Link>
       </div>
       <div className="content">
-        <h3>{header}</h3>
+        <div className="header">
+          <Link onClick={headerClickHandler} to="/selected-product">
+            <h3>{header}</h3>
+          </Link>
+        </div>
         <p>
           <CurrencyFormat
             thousandSeparator={true}
@@ -48,18 +72,20 @@ const CSS = css`
   font-family: "Work Sans", sans-serif;
 
   .img__container {
-    width: 25%;
+    width: 100px;
     margin-right: 15px;
 
     img {
-      width: 100%;
+      width: 100px;
     }
   }
 
   .content {
-    h3 {
-      color: #073b4c;
-      margin-bottom: 5px;
+    .header {
+      h3 {
+        color: #073b4c;
+        margin-bottom: 5px;
+      }
     }
 
     p {

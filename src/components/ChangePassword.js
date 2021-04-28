@@ -4,6 +4,7 @@
 import { jsx, css } from "@emotion/react";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router";
+import Particle from "./Particle";
 import { SAuthContext } from "./SuccessAuthContext";
 import { UserContext } from "./UserContext";
 
@@ -32,11 +33,11 @@ function ChangePassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(currentUser.password === pass) {
-      if(newPass === reNewPass) {
+    if (currentUser.password === pass) {
+      if (newPass === reNewPass) {
         currentUser.password = newPass;
-        setCurrentUser({...currentUser, password: newPass});
-        let u = users.filter(cur => cur.email !== currentUser.email)
+        setCurrentUser({ ...currentUser, password: newPass });
+        let u = users.filter((cur) => cur.email !== currentUser.email);
         setUsers([...u, currentUser]);
         alert("Password Changed Successfully!");
         history.replace("/account");
@@ -49,67 +50,76 @@ function ChangePassword() {
     setPass("");
     setNewPass("");
     setReNewPass("");
-  }
+  };
 
   return (
-    <div className="change__password" css={CSS}>
-      <form onSubmit={handleSubmit} className="cont1">
-        <label id="password1" for="password1">
-          Current Password:
-        </label>
-        <input
-          onChange={changePass}
-          id="currentpassword"
-          type="password"
-          name="password1"
-          placeholder="Current Password"
-          value={pass}
-          required
-        />
+    <div className="particle" css={CSS}>
+      <Particle />
+      <div className="change__password">
+        <form onSubmit={handleSubmit} className="cont1">
+          <label id="password1" for="password1">
+            Current Password:
+          </label>
+          <input
+            onChange={changePass}
+            id="currentpassword"
+            type="password"
+            name="password1"
+            placeholder="Current Password"
+            value={pass}
+            required
+          />
 
-        <label id="password2" for="password2">
-          New Password:
-        </label>
-        <input
-          onChange={changeNewPass}
-          id="newpassword"
-          type="password"
-          name="password2"
-          placeholder="New Password"
-          value={newPass}
-          required
-        />
+          <label id="password2" for="password2">
+            New Password:
+          </label>
+          <input
+            onChange={changeNewPass}
+            id="newpassword"
+            type="password"
+            name="password2"
+            placeholder="New Password"
+            value={newPass}
+            required
+          />
 
-        <label id="password3" for="password3">
-          Re-enter New Password:
-        </label>
-        <input
-          onChange={changeReNewPass}
-          id="repassword"
-          type="password"
-          name="password3"
-          placeholder="Re-enter New Password"
-          value={reNewPass}
-          required
-        />
-        <button type="submit">Change Password</button>
-      </form>
+          <label id="password3" for="password3">
+            Re-enter New Password:
+          </label>
+          <input
+            onChange={changeReNewPass}
+            id="repassword"
+            type="password"
+            name="password3"
+            placeholder="Re-enter New Password"
+            value={reNewPass}
+            required
+          />
+          <button type="submit">Change Password</button>
+        </form>
+      </div>
     </div>
   );
 }
 
 const CSS = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: rgba(6, 214, 160, 0.2);
-  /* background: url("") no-repeat,
+  #tsparticles {
+    margin-top: 0;
+  }
+
+  .change__password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(6, 214, 160, 0.2);
+    /* background: url("") no-repeat,
     linear-gradient(
       45deg,
       rgba(6, 214, 160, 0.5) 25%,
       rgba(6, 214, 160, 0.1) 100%
     ); */
+  }
 
   .cont1 {
     background-color: rgba(6, 214, 160, 0.2);
@@ -119,6 +129,7 @@ const CSS = css`
     height: 50vh;
     width: 60vh;
     padding: 0 25px;
+    backdrop-filter: blur(2px);
   }
 
   label {

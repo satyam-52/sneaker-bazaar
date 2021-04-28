@@ -3,6 +3,7 @@
 
 import { jsx, css } from "@emotion/react";
 import img from "../images/bg_bggenerator_com.png";
+import Particle from "./Particle";
 
 function HeroSection({
   headingPt1,
@@ -13,6 +14,7 @@ function HeroSection({
 }) {
   return (
     <div className="hero__container" css={CSS}>
+      <Particle />
       <div className="hero__section">
         <div className="text__section">
           <div className="hero__heading">
@@ -58,6 +60,7 @@ const CSS = css`
     height: 100%;
     display: flex;
     position: relative;
+    backdrop-filter: blur(2px);
 
     .text__section {
       height: 100%;
