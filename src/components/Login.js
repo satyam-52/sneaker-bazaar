@@ -12,7 +12,6 @@ import Particle from "./Particle";
 function Login() {
   const history = useHistory();
 
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,18 +39,22 @@ function Login() {
   };
 
   const register = (e) => {
-    // console.log("register");
     e.preventDefault();
-    setUsers([
-      ...users,
-      {
-        name: name,
-        email: email.toLowerCase(),
-        password: password,
-        address: address,
-      },
-    ]);
-    alert("Now you may sign in.");
+    console.log(users.filter(cur => cur.email === email));
+    if (users.filter((cur) => cur.email === email)[0] === undefined || users === undefined){
+      setUsers([
+        ...users,
+        {
+          name: name,
+          email: email.toLowerCase(),
+          password: password,
+          address: address,
+        },
+      ]);
+      alert("Now you may sign in.");
+    } else {
+      alert("Email Already Registered!");
+    }
     setName("");
     setEmail("");
     setPassword("");
@@ -73,7 +76,7 @@ function Login() {
 
     let u = users.filter(
       (user) => user.email === SIemail && user.password === SIpassword
-    )
+    );
     // console.log(u)
     e.preventDefault();
     if (u[0] !== undefined) {
@@ -379,6 +382,7 @@ const CSS = css`
       font-size: 1.4rem;
       margin: 5px 0;
       margin-left: -10px;
+      width: 100%;
     }
 
     button {

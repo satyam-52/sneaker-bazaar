@@ -107,7 +107,7 @@ function ProductLanding() {
         </div>
         <div className="product__wishlist">
           <p onClick={addToFavorites}>
-            {currentProduct.fav ? "Remove" : "Add"} to wishlist{" "}
+            {currentProduct.fav ? "Remove from" : "Add to"} wishlist{" "}
             {currentProduct.fav ? (<i className="fa fa-heart"></i>) : (<i className="far fa-heart"></i>)}
           </p>
         </div>

@@ -5,6 +5,9 @@ import { css, jsx } from "@emotion/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BasketContext } from "./BasketContext";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navbar(props) {
   const [basket] = useContext(BasketContext);
@@ -36,7 +39,9 @@ function Navbar(props) {
           <Link to="/">
             <p>Home</p>
           </Link>
-          <p>Orders</p>
+          <Link to="/orders">
+            <p>Orders</p>
+          </Link>
           <p id="search" onClick={clickHandler}>
             Search
           </p>
@@ -49,16 +54,14 @@ function Navbar(props) {
         </div>
         <div className="nav__searchBar">
           {/* DROPDOWN BUTTON HERE */}
-          <select name="search" className="search__dropdown">
-            <option defaultValue="products" className="dropdown__option">
-              Products
-            </option>
-            <option value="sellers" className="dropdown__option">
-              Sellers
-            </option>
-          </select>
+          <DropdownButton id="dropdown-basic-button" title="Options">
+            <Dropdown.Item href="#/action-1">Buyers</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Sellers</Dropdown.Item>
+          </DropdownButton>
           <input type="text" placeholder="Search" />
-          <button type="submit">Search</button>
+          <button className="submit" type="submit">
+            Search
+          </button>
         </div>
       </nav>
     </div>
@@ -74,6 +77,15 @@ const CSS = css`
   top: 0;
   background: white;
   z-index: 1024;
+
+  a {
+    color: unset;
+    text-decoration: none;
+
+    :hover {
+      text-decoration: none;
+    }
+  }
 
   @media screen and (max-width: 800px) {
     background-size: auto;
@@ -146,23 +158,25 @@ const CSS = css`
 
     .nav__searchBar {
       width: 55%;
-      margin-bottom: 5px;
+      margin-top: 5px;
       visibility: hidden;
+      display: flex;
 
       @media screen and (max-width: 800px) {
         width: 100%;
       }
 
-      select {
+      .btn {
         width: 6.5rem;
         height: 2.5rem;
         border-radius: 25px 0 0 25px;
         font-size: 14px;
         padding: 10px;
-        border: 1px solid rgb(6, 214, 160);
-        background-color: rgb(6, 214, 160);
+        border: 1px solid rgba(6, 214, 160, 0.5);
+        background-color: rgba(6, 214, 160, 0.5);
         color: white;
         transition: background-color 0.3s ease;
+        text-transform: uppercase;
 
         @media screen and (max-width: 800px) {
           width: 5.5rem;
@@ -176,16 +190,32 @@ const CSS = css`
         }
 
         :hover {
-          background-color: rgb(6, 194, 160);
+          background-color: rgba(6, 194, 160, 0.7);
         }
+      }
+      .dropdown-menu {
+        width: 6.5rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        background-color: white;
 
-        option {
+        .dropdown-item {
+          text-align: center;
+          padding: 10px 10px;
           background-color: white;
-          color: rgb(6, 214, 160);
+          color: rgb(239, 71, 111);
+          transition: all 0.3s ease;
 
           :hover {
-            background-color: rgb(6, 214, 160);
+            background-color: rgba(6, 214, 160, 0.5);
           }
+        }
+
+        @media screen and (max-width: 800px) {
+          width: 5.5rem;
         }
       }
 
@@ -195,7 +225,7 @@ const CSS = css`
         // border-radius: 25px 0 0 25px;
         padding: 10px;
         font-size: 15px;
-        border: 1px solid rgb(6, 214, 160);
+        border: 1px solid rgba(6, 214, 160, 0.5);
         opacity: 0.8;
         transition: opacity 0.3s ease;
 
@@ -215,14 +245,14 @@ const CSS = css`
         }
       }
 
-      button {
+      .submit {
         width: 6.5rem;
         height: 2.5rem;
         color: white;
         border: none;
         border-radius: 0 25px 25px 0;
         font-size: 14px;
-        background-color: rgb(6, 214, 160);
+        background-color: rgba(6, 214, 160, 0.5);
         cursor: pointer;
         margin-bottom: 10px;
         text-transform: uppercase;
@@ -235,7 +265,7 @@ const CSS = css`
         }
 
         :hover {
-          background-color: rgb(6, 194, 160);
+          background-color: rgba(6, 194, 160, 0.7);
         }
 
         @media screen and (max-width: 800px) {

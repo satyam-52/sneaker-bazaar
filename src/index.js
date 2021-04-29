@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -17,6 +16,10 @@ import { SAuthProvider } from "./components/SuccessAuthContext";
 import AccountDetails from "./components/AccountDetails";
 import Redirect from "./components/Redirect";
 import ChangePassword from "./components/ChangePassword";
+import Checkout from "./components/Checkout";
+import CheckoutRedirect from "./components/CheckoutRedirect";
+import "./index.css";
+import Orders from "./components/Orders";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -46,6 +49,15 @@ ReactDOM.render(
                     </Route>
                     <Route path="/change-password">
                       <ChangePassword />
+                    </Route>
+                    <Route path="/checkout">
+                      <Checkout />
+                    </Route>
+                    <Route path="/checkout-redirect">
+                      <CheckoutRedirect />
+                    </Route>
+                    <Route path="/orders">
+                      <Orders />
                     </Route>
                     <Route path="/">
                       <App />

@@ -81,6 +81,10 @@ const CSS = css`
         height: 3px;
         background: rgb(5, 214, 160);
       }
+      
+      @media screen and (max-width: 400px) {
+        font-size: 23px;
+      }
     }
 
     .products__headerButtons {
@@ -107,6 +111,16 @@ const CSS = css`
 
         :hover::after {
           width: 100%;
+        }
+
+        @media screen and (max-width: 400px) {
+          font-size: 14px;
+
+          i {
+            :before {
+              font-size: 10px;
+            }
+          }
         }
       }
     }

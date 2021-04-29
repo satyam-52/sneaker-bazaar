@@ -4,6 +4,7 @@
 import { jsx, css } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
+import { Link } from "react-router-dom";
 import { BasketContext } from "./BasketContext";
 
 function Subtotal() {
@@ -30,7 +31,13 @@ function Subtotal() {
         </div>
       </div>
       <div className="bottom">
-        <button>Proceed to Checkout</button>
+        {basket.reduce((total, cur) => total + cur.price, 0) > 1 ? (
+          <Link to="/checkout-redirect">
+          <button>Proceed to Checkout</button>
+        </Link>
+        ) : (
+          <button>Proceed to Checkout</button>
+        )}
       </div>
     </div>
   );
