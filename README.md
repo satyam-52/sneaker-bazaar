@@ -1,5 +1,16 @@
 # PROJECT UNDER DEVELOPMENT
 
+## Tech Stack: 
+1. HTML: Structuring
+2. Emotion JS: Styling
+3. React JS: Components
+4. Stripe API: For Payments
+5. Firebase Auth: For user auth (Will be added soon 🚀)
+6. Firebase Firestore: For Database (Will be added soon 🚀)
+7. Particle JS: Animation
+8. Bootstrap (Currently inactive, will be active after fixing search bar 😅 )
+9. Crypto-js
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
