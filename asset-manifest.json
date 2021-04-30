@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sneaker-bazaar/static/css/main.d93c5ea6.chunk.css",
-    "main.js": "/sneaker-bazaar/static/js/main.7c75c1dd.chunk.js",
-    "main.js.map": "/sneaker-bazaar/static/js/main.7c75c1dd.chunk.js.map",
+    "main.js": "/sneaker-bazaar/static/js/main.b4b1a08b.chunk.js",
+    "main.js.map": "/sneaker-bazaar/static/js/main.b4b1a08b.chunk.js.map",
     "runtime-main.js": "/sneaker-bazaar/static/js/runtime-main.c5e4d53a.js",
     "runtime-main.js.map": "/sneaker-bazaar/static/js/runtime-main.c5e4d53a.js.map",
-    "static/js/2.7d9dc5fa.chunk.js": "/sneaker-bazaar/static/js/2.7d9dc5fa.chunk.js",
-    "static/js/2.7d9dc5fa.chunk.js.map": "/sneaker-bazaar/static/js/2.7d9dc5fa.chunk.js.map",
+    "static/js/2.9d25e9d3.chunk.js": "/sneaker-bazaar/static/js/2.9d25e9d3.chunk.js",
+    "static/js/2.9d25e9d3.chunk.js.map": "/sneaker-bazaar/static/js/2.9d25e9d3.chunk.js.map",
     "index.html": "/sneaker-bazaar/index.html",
     "static/css/main.d93c5ea6.chunk.css.map": "/sneaker-bazaar/static/css/main.d93c5ea6.chunk.css.map",
-    "static/js/2.7d9dc5fa.chunk.js.LICENSE.txt": "/sneaker-bazaar/static/js/2.7d9dc5fa.chunk.js.LICENSE.txt",
+    "static/js/2.9d25e9d3.chunk.js.LICENSE.txt": "/sneaker-bazaar/static/js/2.9d25e9d3.chunk.js.LICENSE.txt",
     "static/media/bg_bggenerator_com.557337c9.png": "/sneaker-bazaar/static/media/bg_bggenerator_com.557337c9.png",
     "static/media/img1.79513df3.jfif": "/sneaker-bazaar/static/media/img1.79513df3.jfif",
     "static/media/img10.d06eed5d.webp": "/sneaker-bazaar/static/media/img10.d06eed5d.webp",
@@ -28,8 +28,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c5e4d53a.js",
-    "static/js/2.7d9dc5fa.chunk.js",
+    "static/js/2.9d25e9d3.chunk.js",
     "static/css/main.d93c5ea6.chunk.css",
-    "static/js/main.7c75c1dd.chunk.js"
+    "static/js/main.b4b1a08b.chunk.js"
   ]
 }
