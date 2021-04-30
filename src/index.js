@@ -21,6 +21,7 @@ import CheckoutRedirect from "./components/CheckoutRedirect";
 import "./index.css";
 import Orders from "./components/Orders";
 import { OrdersProvider } from "./components/OrdersContext";
+import AboutUs from "./components/AboutUs";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -60,6 +61,9 @@ ReactDOM.render(
                       </Route>
                       <Route path="/orders">
                         <Orders />
+                      </Route>
+                      <Route path="/about-us">
+                        <AboutUs />
                       </Route>
                       <Route path="/">
                         <App />

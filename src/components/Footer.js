@@ -2,6 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -10,56 +11,42 @@ function Footer() {
         <div className="footer__top-list">
           <h4 className="header">company</h4>
           <br />
-          <a href="#j" className="link">
-            About
-          </a>
-          <a href="#i" className="link">
-            Jobs
-          </a>
-          <a href="#h" className="link">
-            For the Record
-          </a>
+          <Link to="/about-us">About</Link>
+          <Link to="/about-us">Jobs</Link>
+          <Link to="/about-us">For the Record</Link>
         </div>
         <div className="footer__top-list">
           <h4 className="header">communities</h4>
           <br />
-          <a href="#g" className="link">
-            For Sellers
-          </a>
-          <a href="#f" className="link">
-            Developers
-          </a>
-          <a href="#e" className="link">
-            Advertising
-          </a>
-          <a href="#d" className="link">
-            Investors
-          </a>
-          <a href="#c" className="link">
-            Customers
-          </a>
+          <Link to="/about-us">For Sellers</Link>
+          <Link to="/about-us">Developers</Link>
+          <Link to="/about-us">Advertising</Link>
+          <Link to="/about-us">Investors</Link>
+          <Link to="/about-us">Customers</Link>
         </div>
         <div className="footer__top-link-media-bundle">
           <div className="footer__top-list">
             <h4 className="header">useful links</h4>
             <br />
-            <a href="#b" className="link">
-              Support
-            </a>
-            <a href="#a" className="link">
-              Free Mobile App
-            </a>
+            <Link to="/about-us">Support</Link>
+            <Link to="/about-us">Free Mobile App</Link>
           </div>
           <div className="footer__social-icons">
             <ul>
               <li>
-                <i className="fa fa-instagram"></i>
+                <Link to="about-us">
+                  <i className="fa fa-instagram"></i>
+                </Link>
               </li>
               <li>
-                <i className="fa fa-twitter"></i>
+                <Link to="about-us">
+                  <i className="fa fa-twitter"></i>
+                </Link>
               </li>
               <li>
-                <i className="fa fa-facebook"></i>
+                <Link to="about-us">
+                  <i className="fa fa-facebook"></i>
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,19 +56,29 @@ function Footer() {
         <div className="footer__bottom-links">
           <ul>
             <li>
-              <span>Legal</span>
+              <Link to="/about-us">
+                <span>Legal</span>
+              </Link>
             </li>
             <li>
-              <span>Privacy Center</span>
+              <Link to="/about-us">
+                <span>Privacy Center</span>
+              </Link>
             </li>
             <li>
-              <span>Privacy Policy</span>
+              <Link to="/about-us">
+                <span>Privacy Policy</span>
+              </Link>
             </li>
             <li>
-              <span>Cookies</span>
+              <Link to="/about-us">
+                <span>Cookies</span>
+              </Link>
             </li>
             <li>
-              <span>About Ads</span>
+              <Link to="/about-us">
+                <span>About Ads</span>
+              </Link>
             </li>
           </ul>
         </div>

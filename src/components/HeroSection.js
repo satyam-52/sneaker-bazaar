@@ -2,6 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
+import { Link } from "react-router-dom";
 import img from "../images/bg_bggenerator_com.png";
 import Particle from "./Particle";
 
@@ -24,9 +25,10 @@ function HeroSection({
             <h2>{subHeading}</h2>
           </div>
           <div className="button">
-            <button>{buttonText}</button>
+            {/* <Link to="/about-us"><button>{buttonText}</button></Link> */}
+            <a href="#products"><button>{buttonText}</button></a>
           </div>
-          <a href="#products">
+          {/* <a href="#products">
             <div className="scroll">
               <ion-icon
                 size="large"
@@ -34,7 +36,7 @@ function HeroSection({
                 name="chevron-down-outline"
               ></ion-icon>
             </div>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
@@ -100,6 +102,7 @@ const CSS = css`
 
       .button {
         margin-top: 45px;
+
         button {
           padding: 7px 20px;
           background: transparent;

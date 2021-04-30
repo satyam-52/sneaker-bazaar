@@ -10,11 +10,11 @@ function App() {
   return (
     <div className="App" css={CSS}>
       <HeroSection
-        headingPt1="Clearance"
-        headingPt2Highlight="sale"
-        headingPt3="live."
-        subHeading="Flat 50% off!"
-        buttonText="Check it out!"
+        headingPt1=""
+        headingPt2Highlight="Curating"
+        headingPt3="the most"
+        subHeading="COVETED SNEAKERS"
+        buttonText="Discover!"
       />
       <Products />
     </div>
