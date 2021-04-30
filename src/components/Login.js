@@ -103,7 +103,7 @@ function Login() {
               <i className="far fa-envelope"></i>
               <input
                 onChange={SIemailChange}
-                id="email"
+                id="SIemail"
                 type="email"
                 name="email"
                 placeholder="Enter Email"
@@ -115,7 +115,7 @@ function Login() {
               <i className="fas fa-key"></i>
               <input
                 onChange={SIpasswordChange}
-                id="password"
+                id="SIpassword"
                 type="password"
                 name="password"
                 placeholder="Enter Password"

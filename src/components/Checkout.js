@@ -8,6 +8,8 @@ import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 import { SAuthContext } from "./SuccessAuthContext";
 import { useHistory } from "react-router";
+import { OrdersContext } from "./OrdersContext";
+import sha1 from "crypto-js/sha1";
 
 function Checkout() {
   const history = useHistory();
@@ -21,10 +23,54 @@ function Checkout() {
   const [payment, setPayment] = useState({});
   const [upiId, setUpiId] = useState("");
   const [cod, setCod] = useState("Standard Delivery");
+  const [orders, setOrders] = useContext(OrdersContext);
 
+  const generateRandomID = () => {
+    var current_date = new Date().valueOf().toString();
+    var random = Math.random().toString();
+    // console.log(sha1(current_date, random).toString());
+    return sha1(current_date, random).toString().toUpperCase();
+  };
 
+  const getTimestamp = () => {
+    let newDate = new Date();
+    let seconds = newDate.getSeconds();
+    let minutes = newDate.getMinutes();
+    let hours = newDate.getHours();
+    let day = newDate.getDate();
+    let month = newDate.getMonth();
+    let year = newDate.getFullYear();
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    if (day < 10) {
+      day = `0${day}`;
+    }
+    if (month < 10) {
+      month = `0${month + 1}`;
+    }
+    let formattedDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+    // console.log(formattedDate);
+    return formattedDate;
+  };
 
-
+  const addToOrders = (type) => {
+    setOrders([
+      ...orders,
+      {
+        type: type,
+        order_id: generateRandomID(),
+        timestamp: getTimestamp(),
+        products: basket,
+      },
+    ]);
+  };
 
   const debitCardSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +82,7 @@ function Checkout() {
         expDate: expDate,
       },
     });
+    addToOrders("Debit Card");
     setBasket([]);
     history.replace("/orders");
   };
@@ -45,27 +92,26 @@ function Checkout() {
     setPayment({
       type: "BHIM UPI",
       props: {
-        upiId: upiId
-      }
-    })
+        upiId: upiId,
+      },
+    });
+    addToOrders("BHIM UPI");
     setBasket([]);
     history.replace("/orders");
-  }
+  };
 
   const codSubmit = (e) => {
     e.preventDefault();
     setPayment({
       type: "Cash on Delivery",
       props: {
-        cod: cod
-      }
+        cod: cod,
+      },
     });
+    addToOrders("Cash on Delivery");
     setBasket([]);
-    history.useHistory("/orders");
-  }
-
-
-
+    history.replace("/orders");
+  };
 
   const getCurrentDate = () => {
     let newDate = new Date();
@@ -142,6 +188,7 @@ function Checkout() {
                     placeholder="xxxx xxxx xxxx xxxx"
                     value={cardNumber}
                     onChange={(e) => setCardNumber(e.target.value)}
+                    required={true}
                   />
                   <label htmlFor="cvv">Enter CVV</label>
                   <input
@@ -180,7 +227,9 @@ function Checkout() {
                     value={upiId}
                     onChange={(e) => setUpiId(e.target.value)}
                   />
-                  <button onClick={upiSubmit} type="submit">Confirm Order</button>
+                  <button onClick={upiSubmit} type="submit">
+                    Confirm Order
+                  </button>
                 </form>
               </div>
               <div className="tab">
@@ -190,14 +239,26 @@ function Checkout() {
                 </label>
                 <form onSubmit={codSubmit} className="tab-content">
                   <div className="form__group">
-                    <input type="radio" name="sd" value="One Day Delivery" onChange={e => setCod(e.target.value)} />
+                    <input
+                      type="radio"
+                      name="sd"
+                      value="One Day Delivery"
+                      onChange={(e) => setCod(e.target.value)}
+                    />
                     <label htmlFor="od">One Day Delivery</label>
                   </div>
                   <div className="form__group">
-                    <input type="radio" name="sd" value="Standard Delivery" onChange={e => setCod(e.target.value)} /> 
+                    <input
+                      type="radio"
+                      name="sd"
+                      value="Standard Delivery"
+                      onChange={(e) => setCod(e.target.value)}
+                    />
                     <label htmlFor="sd">Standard Delivery</label>
                   </div>
-                  <button onClick={codSubmit} type="submit">Confirm Order</button>
+                  <button onClick={codSubmit} type="submit">
+                    Confirm Order
+                  </button>
                 </form>
               </div>
               <div className="tab">

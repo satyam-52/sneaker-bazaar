@@ -20,6 +20,7 @@ import Checkout from "./components/Checkout";
 import CheckoutRedirect from "./components/CheckoutRedirect";
 import "./index.css";
 import Orders from "./components/Orders";
+import { OrdersProvider } from "./components/OrdersContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,42 +30,44 @@ ReactDOM.render(
           <UserProvider>
             <FavoriteProvider>
               <SAuthProvider>
-                <Router>
-                  <Navbar />
-                  <Switch>
-                    <Route path="/selected-product">
-                      <SelectedProduct />
-                    </Route>
-                    <Route path="/cart">
-                      <Cart />
-                    </Route>
-                    <Route path="/login">
-                      <Login />
-                    </Route>
-                    <Route path="/account">
-                      <AccountDetails />
-                    </Route>
-                    <Route path="/redirect">
-                      <Redirect />
-                    </Route>
-                    <Route path="/change-password">
-                      <ChangePassword />
-                    </Route>
-                    <Route path="/checkout">
-                      <Checkout />
-                    </Route>
-                    <Route path="/checkout-redirect">
-                      <CheckoutRedirect />
-                    </Route>
-                    <Route path="/orders">
-                      <Orders />
-                    </Route>
-                    <Route path="/">
-                      <App />
-                    </Route>
-                  </Switch>
-                  <Footer />
-                </Router>
+                <OrdersProvider>
+                  <Router>
+                    <Navbar />
+                    <Switch>
+                      <Route path="/selected-product">
+                        <SelectedProduct />
+                      </Route>
+                      <Route path="/cart">
+                        <Cart />
+                      </Route>
+                      <Route path="/login">
+                        <Login />
+                      </Route>
+                      <Route path="/account">
+                        <AccountDetails />
+                      </Route>
+                      <Route path="/redirect">
+                        <Redirect />
+                      </Route>
+                      <Route path="/change-password">
+                        <ChangePassword />
+                      </Route>
+                      <Route path="/checkout">
+                        <Checkout />
+                      </Route>
+                      <Route path="/checkout-redirect">
+                        <CheckoutRedirect />
+                      </Route>
+                      <Route path="/orders">
+                        <Orders />
+                      </Route>
+                      <Route path="/">
+                        <App />
+                      </Route>
+                    </Switch>
+                    <Footer />
+                  </Router>
+                </OrdersProvider>
               </SAuthProvider>
             </FavoriteProvider>
           </UserProvider>

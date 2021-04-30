@@ -98,7 +98,7 @@ const CSS = css`
     }
 
     img {
-      width: 13vw;
+      width: 150px;
 
       @media screen and (max-width: 950px) {
         width: 150px;
