@@ -2,33 +2,39 @@
 /** @jsx jsx */
 
 import { css, jsx } from "@emotion/react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { BasketContext } from "./BasketContext";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+// import Dropdown from "react-bootstrap/Dropdown";
+// import DropdownButton from "react-bootstrap/DropdownButton";
+// import { ProductContext } from "./ProductContext";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-function Navbar(props) {
-  const [basket] = useContext(BasketContext);
+function Navbar() {
+  const history = useHistory();
 
-  const clickHandler = () => {
-    let a = document.getElementsByClassName("nav__searchBar");
-    let b = document.getElementsByClassName("nav__container");
-    console.log(a[0].style.visibility);
-    if (a[0].style.visibility === "hidden" || !a[0].style.visibility) {
-      b[0].style.height = "9.5rem";
-      a[0].style.visibility = "visible";
-    } else {
-      b[0].style.height = "6rem";
-      a[0].style.visibility = "hidden";
-    }
-  };
+  const [basket] = useContext(BasketContext);
+  // const [products, setProducts] = useContext(ProductContext);
+  // const [search, setSearch] = useState("");
+
+  // const clickHandler = () => {
+  //   let a = document.getElementsByClassName("nav__searchBar");
+  //   let b = document.getElementsByClassName("nav__container");
+  //   // console.log(a[0].style.visibility);
+  //   if (a[0].style.visibility === "hidden" || !a[0].style.visibility) {
+  //     b[0].style.height = "9.5rem";
+  //     a[0].style.visibility = "visible";
+  //   } else {
+  //     b[0].style.height = "6rem";
+  //     a[0].style.visibility = "hidden";
+  //   }
+  // };
+
   return (
     <div className="nav__container" css={CSS}>
       <nav>
         <div className="nav__logo">
-          <Link to="/">
+          <Link to="/sneaker-bazaar/">
             <p>Sneaker </p>
             <span>
               {" "}Bazaar{"  "}
@@ -36,33 +42,48 @@ function Navbar(props) {
           </Link>
         </div>
         <div className="nav__links">
-          <Link to="/">
+          <Link to="/sneaker-bazaar/">
             <p>Home</p>
           </Link>
-          <Link to="/orders">
+          <Link to="/sneaker-bazaar/about-us">
+            <p>About Us</p>
+          </Link>
+          <Link to="/sneaker-bazaar/orders">
             <p>Orders</p>
           </Link>
-          <p id="search" onClick={clickHandler}>
-            Search
-          </p>
-          <Link to="/cart">
+          {/* <Link to="/sneaker-bazaar">
+            <p id="search" onClick={clickHandler}>
+              Search
+            </p>
+          </Link> */}
+          <Link to="/sneaker-bazaar/cart">
             <p>Cart({basket.length})</p>
           </Link>
-          <Link to="/redirect">
+          <Link to="/sneaker-bazaar/redirect">
             <p>Account</p>
           </Link>
         </div>
-        <div className="nav__searchBar">
-          {/* DROPDOWN BUTTON HERE */}
+
+        {/* DISABLED NAV SEARCH BAR BELOW */}
+
+        {/* <div className="nav__searchBar">
           <DropdownButton id="dropdown-basic-button" title="Options">
             <Dropdown.Item href="#/action-1">Buyers</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Sellers</Dropdown.Item>
           </DropdownButton>
-          <input type="text" placeholder="Search" />
-          <button className="submit" type="submit">
-            Search
-          </button>
-        </div>
+          <form>
+            <input
+              type="text"
+              placeholder="Disabled"
+              value={search}
+              onChange={(e) => setSearch(e.target.value.toLowerCase())}
+              disabled
+            />
+            <button className="submit" type="submit" disabled>
+              Search
+            </button>
+          </form>
+        </div> */}
       </nav>
     </div>
   );
@@ -219,8 +240,13 @@ const CSS = css`
         }
       }
 
+      form {
+        width: 100%;
+        height: 100%;
+      }
+
       input {
-        width: calc(100% - 13rem);
+        width: calc(100% - 6.5rem);
         height: 2.5rem;
         // border-radius: 25px 0 0 25px;
         padding: 10px;
@@ -240,7 +266,7 @@ const CSS = css`
         }
 
         @media screen and (max-width: 800px) {
-          width: calc(100% - 11rem);
+          width: calc(100% - 5.5rem);
           font-size: 11px;
         }
       }
@@ -251,12 +277,16 @@ const CSS = css`
         color: white;
         border: none;
         border-radius: 0 25px 25px 0;
-        font-size: 14px;
+        font-size: 15px;
         background-color: rgba(6, 214, 160, 0.5);
         cursor: pointer;
         margin-bottom: 10px;
         text-transform: uppercase;
         transition: background-color 0.3s ease;
+
+        a {
+          color: white !important;
+        }
 
         :focus {
           outline: none;

@@ -57,13 +57,13 @@ function Favorite({ id, img, header, rating, price, fav }) {
   return (
     <div className="favorite" css={CSS} key={id}>
       <div className="img__container">
-        <Link onClick={headerClickHandler} to="/selected-product">
+        <Link onClick={headerClickHandler} to="/sneaker-bazaar/selected-product">
           <img src={img} alt={header} />
         </Link>
       </div>
       <div className="content">
         <div className="header">
-          <Link onClick={headerClickHandler} to="/selected-product">
+          <Link onClick={headerClickHandler} to="/sneaker-bazaar/selected-product">
             <h3>{header}</h3>
           </Link>
         </div>

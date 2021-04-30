@@ -2,7 +2,6 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { Link } from "react-router-dom";
 import img from "../images/bg_bggenerator_com.png";
 import Particle from "./Particle";
 
@@ -25,7 +24,7 @@ function HeroSection({
             <h2>{subHeading}</h2>
           </div>
           <div className="button">
-            {/* <Link to="/about-us"><button>{buttonText}</button></Link> */}
+            {/* <Link to="/sneaker-bazaar/about-us"><button>{buttonText}</button></Link> */}
             <a href="#products"><button>{buttonText}</button></a>
           </div>
           {/* <a href="#products">

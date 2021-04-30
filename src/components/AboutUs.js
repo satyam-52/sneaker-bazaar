@@ -13,7 +13,7 @@ function AboutUs() {
       <Particle />
       <div className="about-us">
         <div className="heading">
-          <h1>About Us</h1>
+          <h1>Our Team</h1>
         </div>
         <div className="about__cards">
           <div className="card">

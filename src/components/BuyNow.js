@@ -3,17 +3,15 @@
 
 import { jsx, css } from "@emotion/react";
 import { useContext, useState } from "react";
-import { BasketContext } from "./BasketContext";
-import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 import { SAuthContext } from "./SuccessAuthContext";
 import { useHistory } from "react-router";
 import { OrdersContext } from "./OrdersContext";
 import sha1 from "crypto-js/sha1";
+import { BuyNowContext } from "./BuyNowContext";
 
-function Checkout() {
+function BuyNow() {
   const history = useHistory();
-  const [basket, setBasket] = useContext(BasketContext);
   // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useContext(SAuthContext);
   const [cardNumber, setCardNumber] = useState("");
@@ -24,6 +22,7 @@ function Checkout() {
   const [upiId, setUpiId] = useState("");
   const [cod, setCod] = useState("Standard Delivery");
   const [orders, setOrders] = useContext(OrdersContext);
+  const [product, setProduct] = useContext(BuyNowContext);
 
   const generateRandomID = () => {
     var current_date = new Date().valueOf().toString();
@@ -67,7 +66,7 @@ function Checkout() {
         type: type,
         order_id: generateRandomID(),
         timestamp: getTimestamp(),
-        products: basket,
+        products: [{...product}],
       },
     ]);
   };
@@ -83,7 +82,8 @@ function Checkout() {
       },
     });
     addToOrders("Debit Card");
-    setBasket([]);
+    // setBasket([]);
+    setProduct({});
     history.replace("/sneaker-bazaar/orders");
   };
 
@@ -96,7 +96,8 @@ function Checkout() {
       },
     });
     addToOrders("BHIM UPI");
-    setBasket([]);
+    // setBasket([]);
+    setProduct({});
     history.replace("/sneaker-bazaar/orders");
   };
 
@@ -109,7 +110,8 @@ function Checkout() {
       },
     });
     addToOrders("Cash on Delivery");
-    setBasket([]);
+    // setBasket([]);
+    setProduct({})
     history.replace("/sneaker-bazaar/orders");
   };
 
@@ -133,16 +135,34 @@ function Checkout() {
       <div className="checkout">
         <div className="order">
           <h3>My Products</h3>
-          {basket.map((cur, i) => (
-            <CheckoutProduct
-              id={cur.id}
-              img={cur.img}
-              header={cur.header}
-              rating={cur.rating}
-              fav={cur.fav}
-              key={i}
-            />
-          ))}
+          <div className="order__product">
+            <div className="img__cont">
+              <img src={product.img} alt={product.header} />
+            </div>
+            <div className="product__detail">
+              <p className="header">{product.header}</p>
+              <div className="rating">
+                {Array(5)
+                  .fill()
+                  .map((_, i) =>
+                    i < product.rating ? (
+                      <i key={i} className="fa fa-star"></i>
+                    ) : (
+                      <i key={i} className="far fa-star"></i>
+                    )
+                  )}
+              </div>
+              <p className="price">
+                <CurrencyFormat
+                  thousandSeparator={true}
+                  allowNegative={false}
+                  prefix="₹"
+                  value={product.price}
+                  displayType="text"
+                />
+              </p>
+            </div>
+          </div>
         </div>
         <div className="total__payment-bundle">
           <div className="personal__details">
@@ -157,7 +177,7 @@ function Checkout() {
                   allowNegative={false}
                   prefix="₹"
                   suffix="/-"
-                  value={basket.reduce((sum, cur) => sum + cur.price, 0)}
+                  value={product.price}
                   displayType="text"
                 />
               </p>
@@ -616,4 +636,4 @@ const CSS = css`
   }
 `;
 
-export default Checkout;
+export default BuyNow;

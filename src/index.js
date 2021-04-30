@@ -22,6 +22,8 @@ import "./index.css";
 import Orders from "./components/Orders";
 import { OrdersProvider } from "./components/OrdersContext";
 import AboutUs from "./components/AboutUs";
+import BuyNowRedirect from "./components/BuyNowRedirect";
+import { BuyNowProvider } from "./components/BuyNowContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -32,45 +34,53 @@ ReactDOM.render(
             <FavoriteProvider>
               <SAuthProvider>
                 <OrdersProvider>
-                  <Router>
-                    <Navbar />
-                    <Switch>
-                      <Route path="/selected-product">
-                        <SelectedProduct />
-                      </Route>
-                      <Route path="/cart">
-                        <Cart />
-                      </Route>
-                      <Route path="/login">
-                        <Login />
-                      </Route>
-                      <Route path="/account">
-                        <AccountDetails />
-                      </Route>
-                      <Route path="/redirect">
-                        <Redirect />
-                      </Route>
-                      <Route path="/change-password">
-                        <ChangePassword />
-                      </Route>
-                      <Route path="/checkout">
-                        <Checkout />
-                      </Route>
-                      <Route path="/checkout-redirect">
-                        <CheckoutRedirect />
-                      </Route>
-                      <Route path="/orders">
-                        <Orders />
-                      </Route>
-                      <Route path="/about-us">
-                        <AboutUs />
-                      </Route>
-                      <Route path="/">
-                        <App />
-                      </Route>
-                    </Switch>
-                    <Footer />
-                  </Router>
+                  <BuyNowProvider>
+                    <Router>
+                      <Navbar />
+                      <Switch>
+                        <Route path="/sneaker-bazaar/selected-product">
+                          <SelectedProduct />
+                        </Route>
+                        <Route path="/sneaker-bazaar/cart">
+                          <Cart />
+                        </Route>
+                        <Route path="/sneaker-bazaar/login">
+                          <Login />
+                        </Route>
+                        <Route path="/sneaker-bazaar/account">
+                          <AccountDetails />
+                        </Route>
+                        <Route path="/sneaker-bazaar/redirect">
+                          <Redirect />
+                        </Route>
+                        <Route path="/sneaker-bazaar/change-password">
+                          <ChangePassword />
+                        </Route>
+                        <Route path="/sneaker-bazaar/checkout">
+                          <Checkout />
+                        </Route>
+                        <Route path="/sneaker-bazaar/checkout-redirect">
+                          <CheckoutRedirect />
+                        </Route>
+                        <Route path="/sneaker-bazaar/orders">
+                          <Orders />
+                        </Route>
+                        <Route path="/sneaker-bazaar/about-us">
+                          <AboutUs />
+                        </Route>
+                        <Route path="/sneaker-bazaar/buynow-redirect">
+                          <BuyNowRedirect />
+                        </Route>
+                        <Route path="/sneaker-bazaar/">
+                          <App />
+                        </Route>
+                        <Route path="/">
+                          <App />
+                        </Route>
+                      </Switch>
+                      <Footer />
+                    </Router>
+                  </BuyNowProvider>
                 </OrdersProvider>
               </SAuthProvider>
             </FavoriteProvider>

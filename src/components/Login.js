@@ -83,7 +83,7 @@ function Login() {
       // console.log("if");
       setCurrentUser(u[0]);
       // alert("Signed In!!");
-      history.replace("/account");
+      history.replace("/sneaker-bazaar/account");
     } else {
       // console.log("else");
       alert("Incorrect Email or Password or User doesn't exist.");

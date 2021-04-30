@@ -11,25 +11,25 @@ function Footer() {
         <div className="footer__top-list">
           <h4 className="header">company</h4>
           <br />
-          <Link to="/about-us">About</Link>
-          <Link to="/about-us">Jobs</Link>
-          <Link to="/about-us">For the Record</Link>
+          <Link to="/sneaker-bazaar/about-us">About</Link>
+          <Link to="/sneaker-bazaar/about-us">Jobs</Link>
+          <Link to="/sneaker-bazaar/about-us">For the Record</Link>
         </div>
         <div className="footer__top-list">
           <h4 className="header">communities</h4>
           <br />
-          <Link to="/about-us">For Sellers</Link>
-          <Link to="/about-us">Developers</Link>
-          <Link to="/about-us">Advertising</Link>
-          <Link to="/about-us">Investors</Link>
-          <Link to="/about-us">Customers</Link>
+          <Link to="/sneaker-bazaar/about-us">For Sellers</Link>
+          <Link to="/sneaker-bazaar/about-us">Developers</Link>
+          <Link to="/sneaker-bazaar/about-us">Advertising</Link>
+          <Link to="/sneaker-bazaar/about-us">Investors</Link>
+          <Link to="/sneaker-bazaar/about-us">Customers</Link>
         </div>
         <div className="footer__top-link-media-bundle">
           <div className="footer__top-list">
             <h4 className="header">useful links</h4>
             <br />
-            <Link to="/about-us">Support</Link>
-            <Link to="/about-us">Free Mobile App</Link>
+            <Link to="/sneaker-bazaar/about-us">Support</Link>
+            <Link to="/sneaker-bazaar/about-us">Free Mobile App</Link>
           </div>
           <div className="footer__social-icons">
             <ul>
@@ -56,27 +56,27 @@ function Footer() {
         <div className="footer__bottom-links">
           <ul>
             <li>
-              <Link to="/about-us">
+              <Link to="/sneaker-bazaar/about-us">
                 <span>Legal</span>
               </Link>
             </li>
             <li>
-              <Link to="/about-us">
+              <Link to="/sneaker-bazaar/about-us">
                 <span>Privacy Center</span>
               </Link>
             </li>
             <li>
-              <Link to="/about-us">
+              <Link to="/sneaker-bazaar/about-us">
                 <span>Privacy Policy</span>
               </Link>
             </li>
             <li>
-              <Link to="/about-us">
+              <Link to="/sneaker-bazaar/about-us">
                 <span>Cookies</span>
               </Link>
             </li>
             <li>
-              <Link to="/about-us">
+              <Link to="/sneaker-bazaar/about-us">
                 <span>About Ads</span>
               </Link>
             </li>

@@ -39,12 +39,12 @@ function CartProduct({ id, img, header, rating, price, fav }) {
   return (
     <div className="cart__product" css={CSS}>
       <div className="img__container">
-        <Link onClick={headerClickHandler} to="/selected-product">
+        <Link onClick={headerClickHandler} to="/sneaker-bazaar/selected-product">
           <img src={img} alt={header} />
         </Link>
       </div>
       <div className="cart__product-content">
-        <Link onClick={headerClickHandler} to="/selected-product">
+        <Link onClick={headerClickHandler} to="/sneaker-bazaar/selected-product">
           <h2>{header}</h2>
         </Link>
         <p className="price">

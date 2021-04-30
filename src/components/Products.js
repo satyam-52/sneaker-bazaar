@@ -3,11 +3,17 @@
 
 import { jsx, css } from "@emotion/react";
 import Product from "./Product";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "./ProductContext";
 
 function Products() {
-  const [products] = useContext(ProductContext);
+  const [products, setProducts] = useContext(ProductContext);
+  const [sort, setSort] = useState(true);
+  let [filter, setFilter] = useState([false, [...products]]);
+  let p = [...products];
+
+
+
   let rows = Math.floor(products.length / 4);
   let pRows = [];
   // console.log(rows);
@@ -23,15 +29,41 @@ function Products() {
   }
   // console.log(pRows);
 
+  const sortClickHandler = (e) => {
+    e.preventDefault();
+    if (sort) {
+      setSort(false);
+      setProducts([
+        ...products.sort((a, b) =>
+          Number(a.price) > Number(b.price) ? 1 : -1
+        ),
+      ]);
+    } else {
+      setSort(true);
+      setProducts([...products.sort((a, b) => Number(a.id) - Number(b.id))]);
+    }
+  };
+
+  const filterClickHandler = (e) => {
+    e.preventDefault();
+    if (filter[0]) {
+      setFilter([false, [...p]])
+      setProducts([...filter[1]])
+    } else {
+      setFilter([true, [...p]])
+      setProducts([...products.filter(cur => cur.fav === true)])
+    }
+  };
+
   return (
     <div id="products" className="products" css={CSS}>
       <div className="products__header">
         <h1>Products</h1>
         <div className="products__headerButtons">
-          <p>
+          <p onClick={sortClickHandler}>
             Sort <i className="fas fa-sort"></i>
           </p>
-          <p>
+          <p onClick={filterClickHandler}>
             Filter <i className="fas fa-filter"></i>
           </p>
         </div>
@@ -47,6 +79,7 @@ function Products() {
               price={pro.price}
               fav={pro.fav}
               key={pro.id}
+              sort={sort}
             />
           ))}
         </div>
@@ -81,7 +114,7 @@ const CSS = css`
         height: 3px;
         background: rgb(5, 214, 160);
       }
-      
+
       @media screen and (max-width: 400px) {
         font-size: 23px;
       }

@@ -32,7 +32,7 @@ function Subtotal() {
       </div>
       <div className="bottom">
         {basket.reduce((total, cur) => total + cur.price, 0) > 1 ? (
-          <Link to="/checkout-redirect">
+          <Link to="/sneaker-bazaar/checkout-redirect">
           <button>Proceed to Checkout</button>
         </Link>
         ) : (

@@ -24,7 +24,7 @@ function AccountDetails() {
       address: "",
     });
 
-    history.replace("/login");
+    history.replace("/sneaker-bazaar/login");
   };
 
   // const changePassword = (e) => {
@@ -54,7 +54,7 @@ function AccountDetails() {
             <span>{currentUser.address}</span>
           </div>
           <div className="change__password">
-            <Link to="/change-password">
+            <Link to="/sneaker-bazaar/change-password">
               <button>Change Password</button>
             </Link>
           </div>

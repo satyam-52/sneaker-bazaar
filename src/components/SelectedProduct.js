@@ -3,31 +3,37 @@
 
 import { jsx, css } from "@emotion/react";
 import CurrencyFormat from "react-currency-format";
+// eslint-disable-next-line
 import { useContext, useState } from "react";
 import { CurrentProductContext } from "./CurrentProductContext";
 import { BasketContext } from "./BasketContext";
 import { FavoriteContext } from "./FavoriteContext";
 import { ProductContext } from "./ProductContext";
+import { BuyNowContext } from "./BuyNowContext"
+import { Link, useHistory } from "react-router-dom"
 
 function ProductLanding() {
   const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext);
   const [basket, setBasket] = useContext(BasketContext);
   const [favorites, setFavorites] = useContext(FavoriteContext);
-  const [products, setProducts] = useContext(ProductContext)
+  const [products, setProducts] = useContext(ProductContext);
+  // eslint-disable-next-line
+  const [product, setProduct] = useContext(BuyNowContext);
+  const history = useHistory();
+  
+  // const [quantity, setQuantity] = useState(1);
 
-  const [quantity, setQuantity] = useState(1);
+  // const increment = () => {
+  //   setQuantity(quantity + 1);
+  // };
 
-  const increment = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    } else {
-      alert("Quantity cannot be less then 1");
-    }
-  };
+  // const decrement = () => {
+  //   if (quantity > 1) {
+  //     setQuantity(quantity - 1);
+  //   } else {
+  //     alert("Quantity cannot be less then 1");
+  //   }
+  // };
 
   const addToBasket = () => {
     setBasket([
@@ -96,6 +102,12 @@ function ProductLanding() {
     }
   };
 
+  const setBuyNow = (e) => {
+    e.preventDefault();
+    setProduct({...currentProduct});
+    history.replace("/sneaker-bazaar/buynow-redirect");
+  }
+
   return (
     <div className="selected__product" css={CSS}>
       <div className="img__container">
@@ -127,10 +139,10 @@ function ProductLanding() {
         <div className="product__share">
           <p>Share </p>
           <div className="icons">
-            <i className="fa fa-facebook"></i>
-            <i className="fa fa-twitter"></i>
-            <i className="fa fa-pinterest"></i>
-            <i className="fa fa-whatsapp"></i>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer"><i className="fa fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer"><i className="fa fa-twitter"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noreferrer"><i className="fa fa-pinterest"></i></a>
+            <a href="https://web.whatsapp.com" target="_blank" rel="noreferrer"><i className="fa fa-whatsapp"></i></a>
           </div>
         </div>
         <div className="product__price">
@@ -144,14 +156,14 @@ function ProductLanding() {
             />
           </p>
         </div>
-        <div className="product__quantity">
+        {/* <div className="product__quantity">
           <i className="fas fa-minus" onClick={decrement}></i>
           <span>{quantity}</span>
           <i className="fas fa-plus" onClick={increment}></i>
-        </div>
+        </div> */}
         <div className="product__details-buttons">
           <button onClick={addToBasket}>Add to Bag</button>
-          <button>Buy Now</button>
+          <Link to="/buynow-redirect"><button onClick={setBuyNow}>Buy Now</button></Link>
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ function ChangePassword() {
         let u = users.filter((cur) => cur.email !== currentUser.email);
         setUsers([...u, currentUser]);
         alert("Password Changed Successfully!");
-        history.replace("/account");
+        history.replace("/sneaker-bazaar/account");
       } else {
         alert("Passwords do not match!");
       }
