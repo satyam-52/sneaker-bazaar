@@ -2,7 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Particle from "./Particle";
 import { SAuthContext } from "./SuccessAuthContext";
@@ -10,6 +10,7 @@ import { UserContext } from "./UserContext";
 
 function ChangePassword() {
   const history = useHistory();
+  useEffect(() => window.scrollTo(0, 0), [])
   const [users, setUsers] = useContext(UserContext);
   let [currentUser, setCurrentUser] = useContext(SAuthContext);
   let [pass, setPass] = useState("");

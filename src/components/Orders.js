@@ -4,11 +4,12 @@
 import { jsx, css } from "@emotion/react";
 import Order from "./Order";
 import { OrdersContext } from "./OrdersContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 function Orders() {
   // eslint-disable-next-line
   const [orders, setOrders] = useContext(OrdersContext);
+  useEffect(() => window.scrollTo(0, 0), [])
 
 
 

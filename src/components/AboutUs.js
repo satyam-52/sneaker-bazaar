@@ -6,8 +6,12 @@ import Particle from "./Particle";
 import satyam from "../images/satyam.jpeg";
 import shaivya from "../images/shaivya.jpeg";
 import img from "../images/bg_bggenerator_com.png";
+import { useEffect } from "react"
 
 function AboutUs() {
+  useEffect(() => {window.scrollTo(0, 0)}, [])
+
+
   return (
     <div className="about-us__container" css={CSS}>
       <Particle />

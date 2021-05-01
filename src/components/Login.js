@@ -2,7 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import img from "../images/bg_bggenerator_com.png";
 import { SAuthContext } from "./SuccessAuthContext";
@@ -11,6 +11,7 @@ import Particle from "./Particle";
 
 function Login() {
   const history = useHistory();
+  useEffect(() => window.scrollTo(0, 0), [])
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

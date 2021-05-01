@@ -2,7 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { SAuthContext } from "./SuccessAuthContext";
@@ -10,6 +10,7 @@ import { UserContext } from "./UserContext";
 
 function AccountDetails() {
   const history = useHistory();
+  useEffect(() => {window.scrollTo(0,0)}, [])
 
   const [currentUser, setCurrentUser] = useContext(SAuthContext);
   // eslint-disable-next-line

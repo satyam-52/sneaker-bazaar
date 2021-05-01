@@ -2,7 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BasketContext } from "./BasketContext";
 import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
@@ -13,6 +13,7 @@ import sha1 from "crypto-js/sha1";
 
 function Checkout() {
   const history = useHistory();
+  useEffect(() => window.scrollTo(0,0), [])
   const [basket, setBasket] = useContext(BasketContext);
   // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useContext(SAuthContext);

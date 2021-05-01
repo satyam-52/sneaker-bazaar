@@ -2,7 +2,7 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BasketContext } from "./BasketContext";
 import CartProduct from "./CartProduct";
 import Favorites from "./Favorites";
@@ -10,6 +10,7 @@ import Subtotal from "./Subtotal";
 
 function Cart() {
   const [basket] = useContext(BasketContext);
+  useEffect(() => window.scrollTo(0, 0), [])
   // console.log(basket);
 
   return (

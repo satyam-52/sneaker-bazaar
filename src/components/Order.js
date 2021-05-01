@@ -2,13 +2,14 @@
 /**@jsx jsx*/
 
 import { jsx } from "@emotion/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
 import OrderProduct from "./OrderProduct";
 import { OrdersContext } from "./OrdersContext";
 
 function Order(order) {
   const [orders, setOrders] = useContext(OrdersContext);
+  useEffect(() => window.scrollTo(0, 0), [])
 
   const cancelOrder = (e) => {
     e.preventDefault();

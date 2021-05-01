@@ -1,6 +1,7 @@
 /**@jsxRuntime classic*/
 /**@jsx jsx*/
 
+import { useEffect }from "react";
 import { jsx, css } from "@emotion/react";
 import { useContext, useState } from "react";
 import CurrencyFormat from "react-currency-format";
@@ -12,6 +13,8 @@ import { BuyNowContext } from "./BuyNowContext";
 
 function BuyNow() {
   const history = useHistory();
+  useEffect(() => {window.scrollTo(0, 0)}, []);
+  
   // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useContext(SAuthContext);
   const [cardNumber, setCardNumber] = useState("");

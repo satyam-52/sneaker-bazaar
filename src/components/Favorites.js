@@ -2,12 +2,13 @@
 /**@jsx jsx*/
 
 import { jsx, css } from "@emotion/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Favorite from "./Favorite";
 import { FavoriteContext } from "./FavoriteContext";
 
 function Favorites() {
   const [favorites] = useContext(FavoriteContext);
+  useEffect(() => window.scrollTo(0, 0), [])
 
   return (
     <div className="favorites" css={CSS}>

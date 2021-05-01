@@ -4,7 +4,7 @@
 import { jsx, css } from "@emotion/react";
 import CurrencyFormat from "react-currency-format";
 // eslint-disable-next-line
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CurrentProductContext } from "./CurrentProductContext";
 import { BasketContext } from "./BasketContext";
 import { FavoriteContext } from "./FavoriteContext";
@@ -13,6 +13,7 @@ import { BuyNowContext } from "./BuyNowContext"
 import { Link, useHistory } from "react-router-dom"
 
 function ProductLanding() {
+  useEffect(() => window.scrollTo(0, 0), [])
   const [currentProduct, setCurrentProduct] = useContext(CurrentProductContext);
   const [basket, setBasket] = useContext(BasketContext);
   const [favorites, setFavorites] = useContext(FavoriteContext);

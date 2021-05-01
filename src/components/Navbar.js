@@ -2,6 +2,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from "@emotion/react";
+// eslint-disable-next-line
 import { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { BasketContext } from "./BasketContext";
@@ -11,6 +12,7 @@ import { BasketContext } from "./BasketContext";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navbar() {
+  // eslint-disable-next-line
   const history = useHistory();
 
   const [basket] = useContext(BasketContext);
