@@ -3,7 +3,7 @@
 
 import { jsx, css } from "@emotion/react";
 import { useContext, useEffect } from "react";
-import { BasketContext } from "./BasketContext";
+import { BasketContext } from "./contexts/BasketContext";
 import CartProduct from "./CartProduct";
 import Favorites from "./Favorites";
 import Subtotal from "./Subtotal";

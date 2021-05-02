@@ -5,7 +5,7 @@ import { css, jsx } from "@emotion/react";
 // eslint-disable-next-line
 import { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { BasketContext } from "./BasketContext";
+import { BasketContext } from "./contexts/BasketContext";
 // import Dropdown from "react-bootstrap/Dropdown";
 // import DropdownButton from "react-bootstrap/DropdownButton";
 // import { ProductContext } from "./ProductContext";

@@ -4,7 +4,7 @@
 import { jsx, css } from "@emotion/react";
 import Product from "./Product";
 import { useContext, useState } from "react";
-import { ProductContext } from "./ProductContext";
+import { ProductContext } from "./contexts/ProductContext";
 
 function Products() {
   const [products, setProducts] = useContext(ProductContext);

@@ -5,8 +5,8 @@ import { jsx, css } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
-import { CurrentProductContext } from "./CurrentProductContext";
-import { BasketContext } from "./BasketContext";
+import { CurrentProductContext } from "./contexts/CurrentProductContext";
+import { BasketContext } from "./contexts/BasketContext";
 
 function CartProduct({ id, img, header, rating, price, fav }) {
   // eslint-disable-next-line

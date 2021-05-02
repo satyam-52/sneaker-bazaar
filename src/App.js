@@ -2,7 +2,8 @@
 /**@jsx jsx*/
 
 import { css, jsx } from "@emotion/react";
-import { useEffect } from "react";
+// eslint-disable-next-line
+import React, { useEffect } from "react";
 import "./App.css";
 import HeroSection from "./components/HeroSection";
 import Products from "./components/Products";

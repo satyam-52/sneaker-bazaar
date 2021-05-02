@@ -5,8 +5,8 @@ import { jsx, css } from "@emotion/react";
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Particle from "./Particle";
-import { SAuthContext } from "./SuccessAuthContext";
-import { UserContext } from "./UserContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
+import { UserContext } from "./contexts/UserContext";
 
 function ChangePassword() {
   const history = useHistory();

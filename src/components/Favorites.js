@@ -4,7 +4,7 @@
 import { jsx, css } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import Favorite from "./Favorite";
-import { FavoriteContext } from "./FavoriteContext";
+import { FavoriteContext } from "./contexts/FavoriteContext";
 
 function Favorites() {
   const [favorites] = useContext(FavoriteContext);

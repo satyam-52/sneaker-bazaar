@@ -5,11 +5,11 @@ import { useEffect }from "react";
 import { jsx, css } from "@emotion/react";
 import { useContext, useState } from "react";
 import CurrencyFormat from "react-currency-format";
-import { SAuthContext } from "./SuccessAuthContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
 import { useHistory } from "react-router";
-import { OrdersContext } from "./OrdersContext";
+import { OrdersContext } from "./contexts/OrdersContext";
 import sha1 from "crypto-js/sha1";
-import { BuyNowContext } from "./BuyNowContext";
+import { BuyNowContext } from "./contexts/BuyNowContext";
 
 function BuyNow() {
   const history = useHistory();

@@ -3,9 +3,9 @@
 
 import { jsx, css } from "@emotion/react";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./contexts/UserContext";
 import img from "../images/bg_bggenerator_com.png";
-import { SAuthContext } from "./SuccessAuthContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
 import { useHistory } from "react-router-dom";
 import Particle from "./Particle";
 

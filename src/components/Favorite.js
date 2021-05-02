@@ -5,10 +5,10 @@ import { css, jsx } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
-import { BasketContext } from "./BasketContext";
-import { CurrentProductContext } from "./CurrentProductContext";
-import { FavoriteContext } from "./FavoriteContext";
-import { ProductContext } from "./ProductContext";
+import { BasketContext } from "./contexts/BasketContext";
+import { CurrentProductContext } from "./contexts/CurrentProductContext";
+import { FavoriteContext } from "./contexts/FavoriteContext";
+import { ProductContext } from "./contexts/ProductContext";
 
 function Favorite({ id, img, header, rating, price, fav }) {
   const [favorites, setFavorites] = useContext(FavoriteContext);

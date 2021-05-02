@@ -5,11 +5,11 @@ import { jsx, css } from "@emotion/react";
 import CurrencyFormat from "react-currency-format";
 // eslint-disable-next-line
 import { useContext, useEffect, useState } from "react";
-import { CurrentProductContext } from "./CurrentProductContext";
-import { BasketContext } from "./BasketContext";
-import { FavoriteContext } from "./FavoriteContext";
-import { ProductContext } from "./ProductContext";
-import { BuyNowContext } from "./BuyNowContext"
+import { CurrentProductContext } from "./contexts/CurrentProductContext";
+import { BasketContext } from "./contexts/BasketContext";
+import { FavoriteContext } from "./contexts/FavoriteContext";
+import { ProductContext } from "./contexts/ProductContext";
+import { BuyNowContext } from "./contexts/BuyNowContext"
 import { Link, useHistory } from "react-router-dom"
 
 function ProductLanding() {

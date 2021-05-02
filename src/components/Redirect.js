@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import AccountDetails from "./AccountDetails";
 import Login from "./Login";
-import { SAuthContext } from "./SuccessAuthContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
 
 function Redirect() {
   // eslint-disable-next-line

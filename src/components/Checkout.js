@@ -3,12 +3,12 @@
 
 import { jsx, css } from "@emotion/react";
 import { useContext, useEffect, useState } from "react";
-import { BasketContext } from "./BasketContext";
+import { BasketContext } from "./contexts/BasketContext";
 import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
-import { SAuthContext } from "./SuccessAuthContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
 import { useHistory } from "react-router";
-import { OrdersContext } from "./OrdersContext";
+import { OrdersContext } from "./contexts/OrdersContext";
 import sha1 from "crypto-js/sha1";
 
 function Checkout() {

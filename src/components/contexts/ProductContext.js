@@ -2,18 +2,18 @@ import React, {createContext, useState} from 'react'
 
 // IMPORT IMAGES - START
 
-import img1 from "../images/img1.jfif";
-import img2 from "../images/img2.jfif";
-import img3 from "../images/img3.jfif";
-import img4 from "../images/img4.jpg";
-import img5 from "../images/img5.zoom";
-import img6 from "../images/img6.zoom";
-import img7 from "../images/img7.jfif";
-import img8 from "../images/img8.jfif";
-import img9 from "../images/img9.jfif";
-import img10 from "../images/img10.webp";
-import img11 from "../images/img11.webp";
-import img12 from "../images/img12.webp";
+import img1 from "../../images/img1.jfif";
+import img2 from "../../images/img2.jfif";
+import img3 from "../../images/img3.jfif";
+import img4 from "../../images/img4.jpg";
+import img5 from "../../images/img5.zoom";
+import img6 from "../../images/img6.zoom";
+import img7 from "../../images/img7.jfif";
+import img8 from "../../images/img8.jfif";
+import img9 from "../../images/img9.jfif";
+import img10 from "../../images/img10.webp";
+import img11 from "../../images/img11.webp";
+import img12 from "../../images/img12.webp";
 
 // IMPORT IMAGES - END
 

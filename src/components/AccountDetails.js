@@ -5,8 +5,8 @@ import { jsx, css } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import { SAuthContext } from "./SuccessAuthContext";
-import { UserContext } from "./UserContext";
+import { SAuthContext } from "./contexts/SuccessAuthContext";
+import { UserContext } from "./contexts/UserContext";
 
 function AccountDetails() {
   const history = useHistory();

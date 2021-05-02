@@ -5,7 +5,7 @@ import { jsx } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
 import OrderProduct from "./OrderProduct";
-import { OrdersContext } from "./OrdersContext";
+import { OrdersContext } from "./contexts/OrdersContext";
 
 function Order(order) {
   const [orders, setOrders] = useContext(OrdersContext);

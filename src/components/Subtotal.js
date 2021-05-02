@@ -5,7 +5,7 @@ import { jsx, css } from "@emotion/react";
 import { useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
-import { BasketContext } from "./BasketContext";
+import { BasketContext } from "./contexts/BasketContext";
 
 function Subtotal() {
   const [basket] = useContext(BasketContext);
